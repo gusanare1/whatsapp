@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 '''
+PUSHING CODE
+
+# Push an existing repository from the command line
+git remote add origin https://github.com/gusanare1/whatsapp.git
+git push -u origin master
+
 >>> x = "Hello World!"
 >>> x[2:]
 'llo World!'
@@ -117,7 +123,9 @@ pid = ""
 
 WEB = 'http://web.whatsapp.com'
 PATH_FIREFOX_PROFILE = '/home/usuario/.mozilla/firefox/oanbip2k.whatsapp'
-TIEMPO_RECARGA = 45
+
+TIEMPO_RECARGA = 60
+
 logging.basicConfig(filename='myapp.log', level=logging.ERROR, 
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 logger=logging.getLogger(__name__)
@@ -138,7 +146,8 @@ try:
 	    print("Buscando chats nuevos...")
 	    array_chat = llenar_array_chat(driver)
 	    chat_no_leido = None
-	    
+
+            
 	    if len(array_chat) > 6:
 		try:				
 		    while todos_llenos(array_chat):
@@ -146,7 +155,7 @@ try:
 			scroll_down(driver, scroll)
 			time.sleep(0.5)
 			scroll = scroll + 200
-			time.sleep(0.5)
+			#time.sleep(0.5)
 			array_chat = llenar_array_chat(driver)
 		    
 		    if todos_vacios(array_chat):
@@ -154,7 +163,7 @@ try:
 			scroll_up(driver, scroll)
 			time.sleep(0.5)
 			scroll = scroll - 200
-			time.sleep(0.5)
+			#time.sleep(0.5)
 			array_chat = llenar_array_chat(driver)
 			#print('Hasta el final..')
 		except:
@@ -184,7 +193,7 @@ try:
 		#Recuperar el chat q se escogio
 		chat = array_chat[int(opcion)-1] # En el array es el anterior
 		#El numero de mensajes totales que se reciben...
-		time.sleep(1)
+		time.sleep(0.6)
 		#mensajes_totales = total_mensajes_recuperados(driver)
 		#print(str(mensajes_totales)
 		#El array de mensajjes recibidos...
@@ -209,14 +218,13 @@ try:
 		
 		
 		#time.sleep(1)
+                print("Envio mensaje")
+		    
 		enviar_mensaje( driver, str1, chat_no_leido.get_nombre() )
-		#Pierdo el foco
 		
 		commands.getoutput('wmctrl -a Firefox')
 		driver.execute_script("document.getElementById('app').click();")			
-		#print 'quito focus'			
-		#driver.execute_script("document.getElementById('app').blur();")
-		time.sleep(2)
+		time.sleep(1)
 		commands.getoutput("wmctrl -a '"+programa_actual+"'")    
 	
 		time.sleep(TIEMPO_RECARGA)

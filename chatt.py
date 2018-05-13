@@ -69,8 +69,10 @@ class Bott:
 
 		self.chatbot.set_trainer(ChatterBotCorpusTrainer)
 		self.chatbot.train("./cruises_es.yml")
-
+		#conv = open('chats.txt','r').readlines()
+		#self.train(conv)
 		# Start by training our bot with the ChatterBot corpus data
+		self.chatbot.train('chatterbot.corpus.english')
 		self.chatbot.train('chatterbot.corpus.spanish')
 
 	'''
@@ -97,20 +99,50 @@ class Bott:
 
 	#ORIGINAL
 	def responder(self, pregunta):
-		
+                #mandan en espanol
+                pregunta_tmp = pregunta
+                try:
+                        #print("Estoy traduciendo al ingles")
+                        from translate import Translator
+                        translator= Translator(to_lang="en")
+                        pregunta = translator.translate(pregunta_tmp) #pregunta en ingles
+                except:
+                        #Si hay error en la traduccion
+                        print "Error en traduccion al ingles"
+                        pregunta = pregunta_tmp
+                #Si no hay traduccion, mando la pregunta en espanol
+                if pregunta == "":
+                        pregunta = pregunta_tmp
+                
+                
+                
 		if pregunta == DEFAULT_RESPONSE:
 			response = ""
 		#imprimir("Pregunta..."+pregunta)
 		#imprimir("Estamos en chatbot")
 		#pregunta = pregunta.replace('á','&atilde;').replace('é','&etilde;').replace('í','&itilde;').replace('ó','&otilde;').replace('ú','&utilde;').replace('ñ','&ntilde;')
 		pregunta= u' '.join((pregunta, '')).encode('utf-8').strip()
-		    
+                #print("Tengo la respuesta")
 		response = self.chatbot.get_response(pregunta)
 		response = response.text.replace('&atilde;','á').replace('&etilde;','é').replace('&itilde;','í').replace('&otilde;','ó').replace('&utilde;','ú').replace('&ntilde;','ñ')
 		#response = response.encode("utf-8",'replace')
+                response_tmp = response
+                #SI LA RESPUESTA ES EN INGLES, LA TRADUZCO....
+		#SI ES ESPANOL, ME DEVUELVE LO MISMO
+		try:
+                        #print("Estoy traduciendo al espanhol")
+                        from translate import Translator
+                        translator= Translator(to_lang="es")
+                        response = translator.translate(response) # la respuesta es el ingles
+                except:
+                        #Si hay error en la traduccion
+                        print "Error en traduccion a español"
+                        response = response_tmp
 		response = u' '.join((response, '')).decode('utf-8').strip()
 		#imprimir response
-		
+
+
+		#print("Estoy por enviar la respuesta: "+response)
 		return response
 	
 	#drop database....
@@ -148,3 +180,7 @@ class Bott:
 		print("Human: "+human_.text)
 		print("Bot: "+bot_.text)
 		return "Aprendido: "+exists.text
+
+        def trainWhats(self, input_):
+                print "Training alone whatsapp"
+

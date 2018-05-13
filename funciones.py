@@ -1,3 +1,4 @@
+# -*- coding: latin-1 -*-
 '''DEPERCATED'''
 
 
@@ -114,39 +115,55 @@ def recargar_chats(driver):
 	return lista_web_element 
 
 def quitaNoAlfaNum(texto):
+        '''
 	import re
 	tmp = re.compile(r'\W+', re.UNICODE).split(texto)
 	return ''.join(str(e+" ") for e in tmp)
-
+	'''
+        SP_WHITELIST = '0123456789abcdefghijklmnñopqrstuvwxyz@()?: '.decode("latin-1") # space is included in whitelist
+        EN_BLACKLIST = '!"#$%&\'*+,-./:;<=>?@[\\]^_`{|}~\''
+        return ''.join([ ch for ch in texto if ch in SP_WHITELIST ])
+        
 
 chat = Bott("general")
 mensaje_anterior = ""
+LIST_CHAT_PERMIT = ["Yop", "Jen Na", "Frank Gom"]
 def enviar_mensaje(driver, mensaje, nombre_chat):
 	global mensaje_anterior
+		
 	input_box = driver.find_element_by_xpath(XPATH_CAJA_MENSAJES)
 	input_box.click()
-	#print("Enviando mensaje "+mensaje)
+	#MENSAJE ES UNA CADENA COMPUESTA POR MENSAJES QUE NO HE LEIDO...
+	
+	#print("Enviando mensaje... ")
 	#enviar A CHATT.py
 	
 	mensaje= u' '.join((mensaje, '')).encode('utf-8').strip()
 	if(isinstance(mensaje, str)):
 		mensaje = mensaje.decode("utf-8")
-	
-	#ESTOY SIN INTERNET
-	#(ESTOY LEYENDO EL MENSAJE Q ENVI.E.)
-	if mensaje == mensaje_anterior:
+
+        #ESTOY LEYENDO UN MENSAJE .SPAM.
+	if(len(mensaje)>150):
+                mensaje = ""
+	#ESTOY SIN INTERNET (LEYENDO EL MENSAJE Q ENVI.E.)
+	elif mensaje == mensaje_anterior:
 		mensaje = ""
-	#FIJARSE EN CHATT
+	#FIJARSE EN CHATT- TRAINING
 	elif mensaje.find("lll") != -1:
 		print("TRAINING")
 		mensaje = chat.training(mensaje)
 	else:
 		#print("Es un mensaje")
-		mensaje = chat.responder(mensaje)    
-	action = ActionChains(driver)
-	action.send_keys(mensaje)
-	action.send_keys(Keys.RETURN)
-	action.perform()
+		mensaje = chat.responder(mensaje)
+        #LEO EL MENSAJE Y NO LO RESPONDO
+
+	if (nombre_chat in LIST_CHAT_PERMIT):
+                
+                action = ActionChains(driver)
+                action.send_keys(mensaje)
+                action.send_keys(Keys.RETURN)
+                action.perform()
+	
 	if mensaje == "":
 		mensaje = mensaje_anterior
 	mensaje_anterior = mensaje

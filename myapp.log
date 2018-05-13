@@ -1,0 +1,174 @@
+2018-04-22 19:26:25,317 ERROR root 2018-04-22 19:26:25.317123
+Traceback (most recent call last):
+  File "main.py", line 165, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 19:26:25,326 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 19:29:19,177 ERROR root 2018-04-22 19:29:19.177760
+Traceback (most recent call last):
+  File "main.py", line 209, in <module>
+    enviar_mensaje( driver, str1, chat_no_leido.get_nombre() )
+  File "/home/usuario/python/whatsapp/funciones.py", line 139, in enviar_mensaje
+    mensaje = chat.responder(mensaje)
+  File "/home/usuario/python/whatsapp/chatt.py", line 106, in responder
+    response = self.chatbot.get_response(pregunta)
+  File "/usr/local/lib/python2.7/dist-packages/chatterbot/chatterbot.py", line 116, in get_response
+    previous_statement = self.storage.get_latest_response(conversation_id)
+  File "/usr/local/lib/python2.7/dist-packages/chatterbot/storage/mongodb.py", line 297, in get_latest_response
+    return self.mongo_to_object(statements[-2])
+IndexError: list index out of range
+2018-04-22 19:29:19,642 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 19:35:24,637 ERROR root 2018-04-22 19:35:24.636778
+Traceback (most recent call last):
+  File "main.py", line 165, in <module>
+    if(chat_no_leido is None):
+KeyboardInterrupt
+2018-04-22 19:35:24,652 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 19:47:29,405 ERROR root 2018-04-22 19:47:29.405606
+Traceback (most recent call last):
+  File "main.py", line 220, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 19:50:42,702 ERROR root 2018-04-22 19:50:42.702092
+Traceback (most recent call last):
+  File "main.py", line 166, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 19:51:51,915 ERROR root 2018-04-22 19:51:51.914981
+Traceback (most recent call last):
+  File "main.py", line 210, in <module>
+    enviar_mensaje( driver, str1, chat_no_leido.get_nombre() )
+  File "/home/usuario/python/whatsapp/funciones.py", line 136, in enviar_mensaje
+    if mensaje == mensaje_anterior:
+UnboundLocalError: local variable 'mensaje_anterior' referenced before assignment
+2018-04-22 19:54:05,332 ERROR root 2018-04-22 19:54:05.332287
+Traceback (most recent call last):
+  File "main.py", line 210, in <module>
+    enviar_mensaje( driver, str1, chat_no_leido.get_nombre() )
+  File "/home/usuario/python/whatsapp/funciones.py", line 136, in enviar_mensaje
+    if mensaje == mensaje_anterior:
+UnboundLocalError: local variable 'mensaje_anterior' referenced before assignment
+2018-04-22 19:54:05,563 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 19:55:20,420 ERROR root 2018-04-22 19:55:20.420606
+Traceback (most recent call last):
+  File "main.py", line 166, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 19:55:20,435 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 20:10:49,077 ERROR root 2018-04-22 20:10:49.077305
+Traceback (most recent call last):
+  File "main.py", line 163, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+2018-04-22 20:10:49,092 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 20:18:01,170 ERROR root 2018-04-22 20:18:01.170485
+Traceback (most recent call last):
+  File "main.py", line 166, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 20:18:01,183 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 20:59:42,936 ERROR root 2018-04-22 20:59:42.936489
+Traceback (most recent call last):
+  File "main.py", line 166, in <module>
+    chat_no_leido = get_chat_antiguo_no_leido(array_chat)
+KeyboardInterrupt
+2018-04-22 20:59:42,988 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-22 21:15:04,613 ERROR root 2018-04-22 21:15:04.613580
+Traceback (most recent call last):
+  File "main.py", line 168, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-22 21:15:04,674 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:20:31,848 ERROR root 2018-04-23 16:20:31.848192
+Traceback (most recent call last):
+  File "main.py", line 207, in <module>
+    msg_tmp = Mensaje(quitaNoAlfaNum(contenido), dia, hora)
+  File "/home/usuario/python/whatsapp/funciones.py", line 125, in quitaNoAlfaNum
+    return ''.join([ ch for ch in line if ch in SP_WHITELIST ])
+NameError: global name 'line' is not defined
+2018-04-23 16:21:23,848 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:25:20,881 ERROR root 2018-04-23 16:25:20.881113
+Traceback (most recent call last):
+  File "main.py", line 145, in <module>
+    array_chat = llenar_array_chat(driver)
+  File "/home/usuario/python/whatsapp/funciones.py", line 217, in llenar_array_chat
+    lista_web_element = recargar_chats(driver)
+  File "/home/usuario/python/whatsapp/funciones.py", line 114, in recargar_chats
+    lista_web_element = driver.find_elements_by_xpath("//div[@class="+CLASE_NOMBRE+"]")
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 401, in find_elements_by_xpath
+    return self.find_elements(by=By.XPATH, value=xpath)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 983, in find_elements
+    'value': value})['value'] or []
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 312, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: Failed to decode response from marionette
+
+2018-04-23 16:27:34,998 ERROR root 2018-04-23 16:27:34.998491
+Traceback (most recent call last):
+  File "main.py", line 207, in <module>
+    msg_tmp = Mensaje(quitaNoAlfaNum(contenido), dia, hora)
+  File "/home/usuario/python/whatsapp/funciones.py", line 125, in quitaNoAlfaNum
+    return ''.join([ ch for ch in texto if ch in SP_WHITELIST ])
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xf1 in position 24: invalid continuation byte
+2018-04-23 16:27:39,325 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:28:32,993 ERROR root 2018-04-23 16:28:32.993227
+Traceback (most recent call last):
+  File "main.py", line 175, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-23 16:28:33,061 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:29:05,590 ERROR root 2018-04-23 16:29:05.590117
+Traceback (most recent call last):
+  File "main.py", line 221, in <module>
+    enviar_mensaje( driver, str1, chat_no_leido.get_nombre() )
+  File "/home/usuario/python/whatsapp/funciones.py", line 133, in enviar_mensaje
+    input_box = driver.find_element_by_xpath(XPATH_CAJA_MENSAJES)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 385, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 955, in find_element
+    'value': value})['value']
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 312, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: Unable to locate element: /html/body/div/div/div/div[3]/div/footer/div[1]/div[2]/div/div[2]
+
+2018-04-23 16:29:07,058 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:34:08,426 ERROR root 2018-04-23 16:34:08.426559
+Traceback (most recent call last):
+  File "main.py", line 175, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-23 16:34:08,498 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:39:14,645 ERROR root 2018-04-23 16:39:14.644879
+Traceback (most recent call last):
+  File "main.py", line 228, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-23 16:39:14,723 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:41:14,023 ERROR root 2018-04-23 16:41:14.023025
+Traceback (most recent call last):
+  File "main.py", line 228, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-23 16:41:14,107 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-04-23 16:48:00,989 ERROR root 2018-04-23 16:48:00.989465
+Traceback (most recent call last):
+  File "main.py", line 175, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-04-23 16:48:01,047 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-05-02 11:05:09,487 ERROR root 2018-05-02 11:05:09.487499
+Traceback (most recent call last):
+  File "main.py", line 228, in <module>
+    time.sleep(TIEMPO_RECARGA)
+KeyboardInterrupt
+2018-05-02 11:05:09,564 ERROR root 'Process' object has no attribute 'get_open_files'
+2018-05-02 11:34:26,154 ERROR root 2018-05-02 11:34:26.154517
+Traceback (most recent call last):
+  File "main.py", line 228, in <module>
+    commands.getoutput("wmctrl -a '"+programa_actual+"'")
+KeyboardInterrupt
+2018-05-02 11:34:28,456 ERROR root 'Process' object has no attribute 'get_open_files'
